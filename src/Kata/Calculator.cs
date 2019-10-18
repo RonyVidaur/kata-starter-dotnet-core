@@ -13,7 +13,11 @@ namespace Kata
       if (s.StartsWith("//"))
       {
         var parts = s.Split("\n");
-        separator = parts[0].Substring(2, 1);
+        if (parts[0].Length > 3)
+          separator = parts[0].Substring(3, parts[0].Length - 4);
+
+        else
+          separator = parts[0].Substring(2, 1);
         s = parts[1];
       }
       var numbers = s.Split(new []{"\n", separator}, StringSplitOptions.None).Select(int.Parse).Where(x=>x<1001);
