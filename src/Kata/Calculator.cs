@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Net.Sockets;
 
 namespace Kata
@@ -6,8 +7,15 @@ namespace Kata
   {
     public int Add(string s = "")
     {
-      if (string.IsNullOrEmpty(s)) return 0;
-      return int.Parse(s);
+      if (string.IsNullOrEmpty(s)) 
+        return 0;
+
+      var numbers = s.Split(",").Select(int.Parse);
+
+      if (numbers.Count() == 1)
+        return numbers.First();
+
+      return numbers.First() + numbers.Last();
     }
   }
 }
