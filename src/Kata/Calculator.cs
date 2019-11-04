@@ -17,7 +17,7 @@ namespace Kata
       {
         var parts = s.Split("\n");
         s = parts[1];
-        separator = parts[0].Replace("//", "");
+        separator = parts[0].Replace("//", "").Replace("[", "").Replace("]", "");
       }
       
       var numbers = s.Split(new[]{",","\n", separator},StringSplitOptions.None).Select(int.Parse).Where(x=> x<1001);
