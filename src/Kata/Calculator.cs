@@ -6,7 +6,8 @@ namespace Kata
   {
     public int Add(string s = "")
     {
-      return 0;
+      if (string.IsNullOrEmpty(s)) return 0;
+      return int.Parse(s);
     }
   }
 }
